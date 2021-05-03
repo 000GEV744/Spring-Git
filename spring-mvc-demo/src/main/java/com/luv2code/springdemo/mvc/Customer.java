@@ -25,10 +25,11 @@ public class Customer {
 	@Pattern(regexp = "^[a-z0-9A-Z]{5}", message = "only 5 chars/digits")
 	private String postalCode;
 	
-	@CourseCode
+	
+	@NotNull(message="is required")
+	@CourseCode(value = "TOPS", message = "must start with TOPS")
 	private String courseCode;
-	
-	
+	 
 	public String getFirstName() {
 		return firstName;
 	}
@@ -67,8 +68,6 @@ public class Customer {
 	
 	public void setCourseCode(String courseCode) {
 		this.courseCode = courseCode;
-	}	
-	
-	
+	}
 	
 }
