@@ -31,7 +31,7 @@ public class DeleteDemo {
 			Instructor tempInstructor = 
 					session.get(Instructor.class, theId);
 			
-			System.out.println("Fount Instructor: "+tempInstructor);
+			System.out.println("Found Instructor: "+tempInstructor);
 			if(tempInstructor!=null) {
 				System.out.println("Deleting the Instructor: "+tempInstructor);
 				
