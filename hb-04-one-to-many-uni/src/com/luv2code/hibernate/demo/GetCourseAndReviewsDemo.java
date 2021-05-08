@@ -7,8 +7,9 @@ import org.hibernate.cfg.Configuration;
 import com.luv2code.hibernate.demo.entity.Course;
 import com.luv2code.hibernate.demo.entity.Instructor;
 import com.luv2code.hibernate.demo.entity.InstructorDetail;
+import com.luv2code.hibernate.demo.entity.Review;
 
-public class CreateInstructorDemo {
+public class GetCourseAndReviewsDemo {
 
 	public static void main(String[] args) {
 
@@ -20,6 +21,7 @@ public class CreateInstructorDemo {
 									 .addAnnotatedClass(Course.class)
 									 .addAnnotatedClass(Instructor.class)
 									 .addAnnotatedClass(InstructorDetail.class)
+									 .addAnnotatedClass(Review.class)
 									 .buildSessionFactory();
 		
 		//create session
@@ -27,18 +29,19 @@ public class CreateInstructorDemo {
 		
 		try {
 			
-			Instructor tempInstructor = 
-					new Instructor("Susan", "Public", "susan.public@luv2code.com");
-			InstructorDetail tempInstructorDetail =
-					new InstructorDetail("http:www.youtube.com","Video Games");
-
-			tempInstructor.setInstructorDetails(tempInstructorDetail);
-			
 			//start a transaction
 			session.beginTransaction();
 			
-			System.out.println("Saving instructor: "+tempInstructor);
-			session.save(tempInstructor);
+			//get the course 
+			int theId = 10;
+			Course tempCourse = session.get(Course.class, theId);
+			
+			//print the course 
+			System.out.println(tempCourse);
+
+			//print the course reviews 
+			System.out.println(tempCourse.getReviews());
+			
 			//commit transaction
 			session.getTransaction().commit();
 	
