@@ -4,6 +4,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
@@ -25,6 +27,7 @@ public class MyLoggerConfig {
 		this.printedLoggerLevel = printedLoggerLevel;
 	}
  
+	@PostConstruct
 	public void initLogger() {
  
 		// parse levels
