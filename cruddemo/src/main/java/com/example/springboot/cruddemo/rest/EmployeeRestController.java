@@ -1,4 +1,4 @@
-package com.example.springboot.cruddemo.dao.rest;
+package com.example.springboot.cruddemo.rest;
 
 import java.util.List;
 
